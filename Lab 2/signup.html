@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="Index.html">Noureen Fatima - Lab 2</a></li>
+        <li style="float:right"><a class="active" href="login.html">Log In</a></li>
+        <li style="float:right"><a class="active" href="signup.html">Sign Up</a></li>
+    </ul>
+
+    <div class="centered">
+        <div class="box2">
+            <h1 style="border-bottom: 3px solid #04AA6D; display: inline-block;">Sign Up</h1>
+            <br>
+            <label for="fname">First Name</label><br>
+            <input type="text" name="fname" id="fname" style="width: 95%;">
+
+            <br><br>
+            <label for="lname">Last Name</label><br>
+            <input type="text" name="lname" id="lname" style="width: 95%;">
+
+            <br><br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email" id="email" style="width: 95%;">
+
+            <br><br>
+            <label for="dob">Date Of Birth</label>
+            <input type="date" name="dob" id="dob" style="width: 95%;">
+
+            <br><br>
+            <label for="dob">City Names</label>
+            <select name="city" id="city" style="width: 95%;">
+                <option value="1">Lahore</option>
+                <option value="2">Islamabad</option>
+            </select>
+
+            <br><br>
+            <label for="gen">Gender</label><br>
+            <input type="radio"><label for="gen">Male</label>
+            <input type="radio"><label for="gen">Female</label>
+
+            <br><br>
+            <input type="checkbox" name="t&c" id="t&c"><label for="t&c">I agree to <u>Terms and Conditions</u></label>
+        
+            <br><br>
+            <input type="submit" value="Sign Up" class="btn">
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+//radio button val in jquery
+// $('input[name="name_of_your_radiobutton"]:checked').val();

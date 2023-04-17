@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr 0.14fr;
+    grid-template-areas: "hi1 hi2 hi3 hi4 hi5 hi6 hi7";
+    grid-template-rows: 1fr;
+    position: relative;
+    color: black;
+    text-align: center;
+    font-size:xx-large;
+}
+
+.hi1{
+    grid-area: hi1;
+}
+
+.hi2{
+    grid-area: hi2;
+}
+
+.hi3{
+    grid-area: hi3;
+}
+
+.hi4{
+    grid-area: hi4;
+}
+
+.hi5{
+    grid-area: hi5;
+}
+
+.hi6{
+    grid-area: hi6;
+}
+
+.hi7{
+    grid-area: hi7;
+}
+
+[class *= "hi"]{
+    margin: 23%;
+    border-radius: 50%;
+    height: 100px;
+    text-align: centre;
+    background-color:darksalmon;
+}
+
+.nav{
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+img{
+    width: 150px;
+}
+
+input[type="text"]{
+    margin: 15px;
+    padding: 5px;
+}
+
+input[type="submit"] {
+    float: right;
+    margin-top: 15px;
+}
+
+label{
+    position: relative;
+}
+
+label:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    
+}

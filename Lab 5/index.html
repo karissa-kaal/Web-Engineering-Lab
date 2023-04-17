@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 80px;
+        height: 80px;
+        background-color: brown;
+    }
+
+    .form{
+        background-color: darkolivegreen;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    img{
+        width: 300px;
+        display: block;
+        margin: auto;
+        opacity: 0;
+    }
+
+    .fader{
+        height: 600px;
+        background-color:darkolivegreen;
+        text-align: center;
+    }
+
+    .add-on{
+        background-color: red;
+        color: white;
+        border-radius: 2px;
+    }
+
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+</style>
+<body>
+    <div class="box"></div>
+    <button id="toggle">Toggle</button>
+    <button id="modal">Open Modal</button>
+    <br><button id="message">Message</button>
+    <br><button id="color">Blue</button>
+    <br><button id="hover" title="This is a tooltip">Hover</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>This is modal and wow it opens on button. God damn how?</p>
+        </div>
+      
+    </div>
+
+    <div class="form">
+        <h3>Form</h3>
+        <input type="text" name="Name" id="name" placeholder="Name">
+        <input type="text" name="Email" id="email" placeholder="Email">
+        <br><br><button id="submit">Submit</button>
+    </div>
+    
+    <div class="fader">
+        <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="no img">
+        <ul id="mylist">
+            <li>Noureen</li>
+            <li>Sana</li>
+            <li>Aima</li>
+            <li>Zara</li>
+            <li>Malaika</li>
+        </ul>
+        <button id="sort">Sort</button>
+    </div>
+
+</body>
+
+<script>
+    $(document).ready(function(){
+        $("button#toggle").click(function(){
+            $("div.box").toggle();
+        });
+
+        $("button#message").click(function(){
+            alert("This is a message");
+        });
+
+        $("button#color").click(function(){
+            $("div.box").css("background-color", "blue");
+        });
+
+        $("button#submit").click(function(){
+            if($("#name").val() == "" || $("#email").val() == "")
+                alert("Form not filled");
+        });
+
+        $("button#hover").hover(function(){
+            $("button#hover").toggleClass("add-on");
+            $("button#hover").tooltip();
+        });
+
+        $("button#modal").click(function(){
+            $("div.modal").css("display", "block");
+        });
+        
+        $("span.close").click(function(){
+            $("div.modal").css("display", "none");
+        });
+
+        $("button#sort").click(function(){
+            var mylist = $('#mylist');
+            var listitems = mylist.children('li').get();
+            
+            // listitems.sort(function(a, b) {
+            //     return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+            // })
+
+            listitems.sort(function(a,b){
+                return $(a) .text().toUpperCase().localeCompare($(b).text().toUpperCase());
+            });
+
+            // $(listitems).each(function(idx, itm) { mylist.append(itm); });
+        });
+    });
+
+        
+
+    $(document).scroll(function(){
+        $('img').each( function(i){
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            if( bottom_of_window > bottom_of_element ){
+                $(this).animate({'opacity':'1'},1000);
+            }
+        });
+    });
+
+</script>
+</html>
